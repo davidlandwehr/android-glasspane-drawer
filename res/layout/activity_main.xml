@@ -1,0 +1,215 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background" >
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/downscale"
+            android:columnCount="2" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal" >
+
+                <Button
+                    android:id="@+id/cpu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CPU" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal" >
+
+                <Button
+                    android:id="@+id/threaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Threaded" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal" >
+
+                <Button
+                    android:id="@+id/renderscript"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="RenderScript" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal" >
+
+                <Button
+                    android:id="@+id/intrensic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="Intrensic" />
+            </LinearLayout>
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/text_kernel"
+            style="@style/SeekLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Kernel size" />
+
+        <SeekBar
+            android:id="@+id/kernel"
+            style="@style/Theme.SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_kernel"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:max="200" />
+
+        <TextView
+            android:id="@+id/text_downscale"
+            style="@style/SeekLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kernel"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Downscale factor" />
+
+        <SeekBar
+            android:id="@+id/downscale"
+            style="@style/Theme.SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_downscale"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:max="12" />
+    </RelativeLayout>
+
+    <droiddevs.sample.BlurredView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Method" />
+
+            <TextView
+                android:id="@+id/d_method"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="None" />
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kernel size" />
+
+            <TextView
+                android:id="@+id/d_kernel"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="100" />
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Downscale factor" />
+
+            <TextView
+                android:id="@+id/d_downscale"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Screenshot timing" />
+
+            <TextView
+                android:id="@+id/d_screenshot"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="100ms" />
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blur timing" />
+
+            <TextView
+                android:id="@+id/d_blur"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="200ms" />
+
+            <TextView
+                style="@style/Timing.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total" />
+
+            <TextView
+                android:id="@+id/d_total"
+                style="@style/Timing.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="300ms" />
+        </LinearLayout>
+
+        <!--
+               ListView android:id="@+id/items"
+		       android:layout_width="match_parent"
+		       android:layout_height="match_parent"
+		       android:layout_gravity="start"
+		       android:choiceMode="singleChoice"
+		       android:divider="#20FFFFFF"
+		       android:dividerHeight="1dp"
+		       android:background="@android:color/transparent"
+		       android:overScrollMode="never"/
+        -->
+
+    </droiddevs.sample.BlurredView>
+
+</android.support.v4.widget.DrawerLayout>

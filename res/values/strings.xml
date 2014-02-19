@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DroidDev RenderScript</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    
+    <string name="cpu">Single CPU</string>
+    <string name="thread_cpu">Threaded CPU</string>
+    <string name="rs">RenderScript</string>
+    <string name="intrinsic">Intrinsic</string>
+    <string name="none">None</string>
+    
+</resources>
